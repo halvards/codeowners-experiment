@@ -1,6 +1,8 @@
 name: "privileged-requester"
 on:
   pull_request:
+    paths-ignore:
+    - '!myapp/**'
     types: [opened, synchronize, reopened, labeled, unlabeled]
 
 permissions:
