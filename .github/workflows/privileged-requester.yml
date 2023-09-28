@@ -15,7 +15,6 @@ jobs:
     # https://github.com/marketplace/actions/privileged-requester
     - uses: github/privileged-requester@v1.0.1
       with:
-        myToken: ${{ secrets.GITHUB_TOKEN }}
         path: .github/config/privileged-requester.yaml
         checkDiff: "false"
         checkLabels: "false"
