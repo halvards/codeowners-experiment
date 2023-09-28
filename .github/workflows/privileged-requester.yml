@@ -1,0 +1,20 @@
+name: "privileged-requester"
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, labeled, unlabeled]
+
+permissions:
+  pull-requests: write
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+    # https://github.com/marketplace/actions/checkout
+    - uses: actions/checkout@v4
+    # https://github.com/marketplace/actions/privileged-requester
+    - uses: github/privileged-requester@v1.0.1
+      with:
+        path: .github/config/privileged-requester.yaml
+        checkDiff: "false"
+        checkLabels: "false"
