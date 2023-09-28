@@ -1,8 +1,9 @@
 name: "privileged-requester"
 on:
   pull_request:
-    paths-ignore:
-    - '!myapp/**'
+    paths:
+    - 'myapp/**'
+    - '!*'
     types: [opened, synchronize, reopened, labeled, unlabeled]
 
 permissions:
@@ -17,6 +18,6 @@ jobs:
     # https://github.com/marketplace/actions/privileged-requester
     - uses: github/privileged-requester@v1.0.1
       with:
-        path: .github/config/privileged-requester.yaml
+        path: .github/myapp/privileged-requester.yaml
         checkDiff: "false"
         checkLabels: "false"
